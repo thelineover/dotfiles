@@ -198,6 +198,10 @@ Plug 'tpope/vim-rails'
 " CMAKE
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Markdown
+Plug 'shime/vim-livedown'
+nmap <leader>md :LivedownToggle<cr>
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
