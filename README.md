@@ -1,2 +1,4 @@
 # dotfiles
-init.vim(neovim), .zshrc,, .tmux.conf
+init.vim(neovim)
+.zshrc
+.tmux.conf
