@@ -28,7 +28,6 @@ let g:tagbar_iconchars = ['↠', '↡']
 Plug 'scrooloose/nerdtree'
 " nmap \ <leader>q
 nmap \ :NERDTreeToggle<cr>
-" map  <silent><leader>q :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '🔰'
@@ -202,6 +201,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " Markdown
 Plug 'shime/vim-livedown'
 nmap <leader>md :LivedownToggle<cr>
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
@@ -259,11 +259,6 @@ au BufReadPost *
   \ exe "norm g`\"" |
   \ endif
 
-"cmake syntax highligiting.."
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in runtime! indent/cmake.vim
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
-autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
-
 " Filetype
 filetype plugin indent on
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -289,8 +284,8 @@ noremap <leader>2 :exe "vertical resize +8" <cr>
 
 " Use arrow keys to switch tabs
 noremap <leader><leader><esc> :bp <BAR> bd#<cr>
-noremap <Tab> :tabnext<cr>
-noremap <S-Tab> :tabprevious<cr>
+" noremap <Tab> :tabnext<cr>
+" noremap <S-Tab> :tabprevious<cr>
 noremap <Left> :bprevious <cr>
 noremap <Right> :bnext <cr>
 noremap <leader>to :tabnew

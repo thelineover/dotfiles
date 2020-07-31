@@ -1,10 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/thelineover/.oh-my-zsh"
 
-# GUI
-export DISPLAY=$(ip route  | awk '/default via / {print $3; exit}' 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
-
 # Plugins
 plugins=(
     git
@@ -76,10 +72,14 @@ source ~/catkin_ws/devel/setup.zsh
 export ROS_HOSTNAME=localhost
 export ROS_MASTER_URI=http://localhost:11311
 
+# ROS EDITOR
+export EDITOR='nvim'
+
 # ROS alias
 alias cw='cd ~/catkin_ws'
 alias cs='cd ~/catkin_ws/src'
 alias cm='cd ~/catkin_ws && catkin_make'
+alias ccp='catkin_create_pkg'
 alias core='roscore'
 alias rcd='roscd'
 alias run='rosrun'
