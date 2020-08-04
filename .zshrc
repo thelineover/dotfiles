@@ -83,6 +83,7 @@ alias ccp='catkin_create_pkg'
 alias core='roscore'
 alias rcd='roscd'
 alias run='rosrun'
+alias mklaunch='mkdir launch && cd launch'
 
 alias xrdp='sudo /etc/init.d/xrdp start'
 

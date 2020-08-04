@@ -202,6 +202,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'shime/vim-livedown'
 nmap <leader>md :LivedownToggle<cr>
 
+Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
