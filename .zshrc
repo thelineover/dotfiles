@@ -28,6 +28,7 @@ alias ws='cd ~/Workspace'
 alias vim='nvim'
 alias v='nvim'
 alias fd='fdfind'
+alias -g gp="| grep --color=auto"
 
 # Many mistake keys
 alias cl='clear'

@@ -29,6 +29,7 @@ Plug 'scrooloose/nerdtree'
 " nmap \ <leader>q
 nmap \ :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=0
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '🔰'
 
@@ -77,7 +78,12 @@ Plug 'tpope/vim-surround'
 
 Plug 'prettier/vim-prettier', { 'do': 'npm install'  }
 Plug 'yuezk/vim-js'
-noremap <leader>on :syntax on<cr>
+noremap <silent><leader>on
+    \ : if exists("syntax_on") <BAR>
+    \    syntax off <BAR>
+    \ else <BAR>
+    \    syntax enable <BAR>
+    \ endif<CR>
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mbbill/undotree'
@@ -178,6 +184,7 @@ let g:diminactive_enable_focus = 1
 
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
+" EASY Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'pechorin/any-jump.vim'
 
@@ -203,6 +210,24 @@ Plug 'shime/vim-livedown'
 nmap <leader>md :LivedownToggle<cr>
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
+
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+Plug 'psf/black', { 'branch': 'stable'  }
+autocmd BufWritePre *.py execute ':Black'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
@@ -262,16 +287,27 @@ au BufReadPost *
 
 " Filetype
 filetype plugin indent on
-autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType journal setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType c,cpp setlocal expandtab shiftwidth=2 softtabstop=2 cindent
-autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType html setlocal autoindent smartindent tabstop=2 shiftwidth=2
-autocmd BufRead,BufNewFile *.launch set filetype=html
-autocmd BufRead,BufNewFile *.xml set filetype=html
-au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+augroup autoformat_settings
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType CMakeLists.txt AutoFormatBuffer cmake-format
+  autocmd FileType xml,html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+augroup END
+
+  autocmd FileType python AutoFormatBuffer pep8
+" autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType journal setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType c,cpp setlocal expandtab shiftwidth=2 softtabstop=2 cindent
+" autocmd FileType CMakeLists.txt setlocal expandtab shiftwidth=2 softtabstop=2 cindent
+" autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+" autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+" autocmd FileType html setlocal autoindent smartindent tabstop=2 shiftwidth=2
+" autocmd BufRead,BufNewFile *.launch set filetype=html
+" autocmd BufRead,BufNewFile *.xml set filetype=html
+" au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Split windows
 nmap <leader>sp :split
@@ -285,10 +321,10 @@ noremap <leader>2 :exe "vertical resize +8" <cr>
 
 " Use arrow keys to switch tabs
 noremap <leader><leader><esc> :bp <BAR> bd#<cr>
-" noremap <Tab> :tabnext<cr>
-" noremap <S-Tab> :tabprevious<cr>
-noremap <Left> :bprevious <cr>
-noremap <Right> :bnext <cr>
+noremap <Tab> :tabnext<cr>
+noremap <S-Tab> :tabprevious<cr>
+noremap <Tab> :bprevious <cr>
+noremap <S-Tab> :bnext <cr>
 noremap <leader>to :tabnew
 
 " Some mistake keys
@@ -296,6 +332,11 @@ map Q gq
 cmap Wq wq
 cmap W w
 cmap Q q
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " Some useful keys
 nmap <c-s> :update<cr>
