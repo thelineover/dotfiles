@@ -1,5 +1,7 @@
 # DotFiles
+
 * Update on mac mini
+
 ## For Neovim
 
 init.vim(neovim)
