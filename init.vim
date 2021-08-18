@@ -39,7 +39,7 @@ let g:comfortable_motion_scroll_up_key = "k"
 " Tagbar
 Plug 'majutsushi/tagbar'
 nmap ? :TagbarToggle<cr>
-
+let g:tagbar_ctags_bin='/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 nmap \ :NERDTreeToggle<cr>

@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/thelineover/.oh-my-zsh"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
@@ -21,11 +20,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -72,7 +71,6 @@ alias celar='clear'
 alias cleawr='clear'
 alias celra='clear'
 
-alias ls='colorls'
 alias lss='ls'
 alias sl='ls'
 alias lsd='ls'
@@ -80,12 +78,8 @@ alias sls='ls'
 
 alias xit='exit'
 source $(dirname $(gem which colorls))/tab_complete.sh
-alias lc='colorls -lA --sd'
-alias lca='colorls --gs -lA --sd -t'
+alias cls='colorls -lA --sd'
+alias clsa='colorls --gs -lA --sd -t'
 
 source ~/forgit/forgit.plugin.zsh
 
-# pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
