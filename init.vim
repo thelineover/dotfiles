@@ -249,8 +249,8 @@ noremap <leader><leader><esc> :bp <BAR> bd#<cr>
 noremap tc :tabclose <cr>
 noremap <leader><Tab> :tabnext<cr>
 noremap <leader><S-Tab> :tabprevious<cr>
-noremap <leader><Tab> :bprevious <cr>
-noremap <leader><S-Tab> :bnext <cr>
+" noremap <leader><Tab> :bprevious <cr>
+" noremap <leader><S-Tab> :bnext <cr>
 noremap <leader>to :tabnew
 
 " Some mistake keys
