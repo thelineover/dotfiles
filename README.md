@@ -12,6 +12,10 @@ init.vim(neovim)
 
 .zshrc
 
+* Install zsh
+'''bash
+apt install zsh
+'''
 * Oh-my-zsh: <https://github.com/ohmyzsh/ohmyzsh>
 
 * Starship cross-shell prompt: <https://github.com/ohmyzsh/ohmyzsh>
