@@ -14,8 +14,8 @@ init.vim(neovim)
 
 * Install zsh
 ````````
-```
-apt install zsh
+```bash
+ apt install zsh
 ```
 
 * Oh-my-zsh: <https://github.com/ohmyzsh/ohmyzsh>
