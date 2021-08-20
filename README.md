@@ -18,12 +18,16 @@ init.vim(neovim)
  apt install zsh
 ```
 
-* Oh-my-zsh: <https://github.com/ohmyzsh/ohmyzsh>
 
-* Starship cross-shell prompt: <https://github.com/ohmyzsh/ohmyzsh>
 
-## For TMUX
 
-.tmux.conf
 
-* Tmux Plugin Manager(TPM): <https://github.com/tmux-plugins/tpm>
+> * Oh-my-zsh: <https://github.com/ohmyzsh/ohmyzsh>
+
+> * Starship cross-shell prompt: <https://github.com/ohmyzsh/ohmyzsh>
+
+> ## For TMUX
+
+> .tmux.conf
+
+> * Tmux Plugin Manager(TPM): <https://github.com/tmux-plugins/tpm>
