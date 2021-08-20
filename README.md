@@ -13,8 +13,8 @@ init.vim(neovim)
 .zshrc
 
 * Install zsh
-`````````
-```bash
+````````
+```
 apt install zsh
 ```
 
