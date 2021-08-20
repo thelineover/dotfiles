@@ -70,6 +70,7 @@ alias lcear='clear'
 alias celar='clear'
 alias cleawr='clear'
 alias celra='clear'
+alias celaer='clear'
 
 alias lss='ls'
 alias sl='ls'
